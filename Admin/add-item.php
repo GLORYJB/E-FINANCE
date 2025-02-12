@@ -1,0 +1,341 @@
+<?php
+session_start();
+include('config.php');
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['create_products'])) {
+    // Get form data
+    $product_name = $_POST['product_name'];
+    $product_date = $_POST['date'];
+    $quantity = $_POST['quantity'];
+    $description = $_POST['description'];
+    $unit_price = $_POST['unit_price'];
+    $category = $_POST['category'];
+    $product_status = $_POST['product_status'];
+   
+    // Get user_id from session
+    $user_id = $_SESSION['user_id'];
+
+    // Prepare and bind parameters
+    $query = "INSERT INTO products (product_name, product_date, quantity, description, unit_price, category, product_status, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ssssdssi", $product_name, $product_date, $quantity, $description, $unit_price, $category, $product_status, $user_id);
+
+
+
+    // Execute the statement
+    if ($stmt->execute()) {
+        // Product successfully created
+        $succ_msg = "Product created successfully";
+        header('Location: all-items.php');
+        exit;
+    } else {
+        // Failed to create product
+        echo "Error: " . $stmt->error;
+    }
+
+    // Close statement
+    $stmt->close();
+}
+
+// Close connection
+$conn->close();
+?>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <title>e-finasa </title>
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="admin.css">
+    <!--[if lt IE 9]>
+		<script src="assets/js/html5shiv.min.js"></script>
+		<script src="assets/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+<div class="main-wrapper">
+        <div class="header">
+            <div class="header-left">
+                <a href="index.html" class="logo">
+                    <span>e-finasa</span>
+                </a>
+            </div>
+            <a id="toggle_btn" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
+            <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"><i class="fa fa-bars"></i></a>
+            <ul class="nav user-menu float-right">
+                <!-- Update navigation links below -->
+                
+                <li class="nav-item"><a href="#" class="nav-link">Upgrade</a></li>
+                <!-- Add more navigation links as needed -->
+                
+                <li class="nav-item dropdown has-arrow">
+                    <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
+                        <span class="user-img">
+                            <img class="rounded-circle" src="assets/img/user.jpg" width="24" alt="User">
+                            <span class="status online"></span>
+                        </span>
+                        <span >
+                        <?php 
+       
+        include('config.php');
+        if (isset($_SESSION['username'])) {
+
+            $username = $_SESSION['username'];
+            
+            echo "Welcome, $username!";
+        } else {
+            echo "Unknown";
+        }
+        
+        ?>
+        </span> <!-- Replace with the user's name -->
+                    </a>
+                    <div class="dropdown-menu">
+                        <!-- Customize user profile dropdown links -->
+                        <a class="dropdown-item" href="profile.html">My Profile</a>
+                        <a class="dropdown-item" href="edit-profile.html">Edit Profile</a>
+                        <a class="dropdown-item" href="settings.html">Settings</a>
+                        <a class="dropdown-item" href="login.php">Logout</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="dropdown mobile-user-menu float-right">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="profile.html">My Profile</a>
+                    <a class="dropdown-item" href="edit-profile.html">Edit Profile</a>
+                    <a class="dropdown-item" href="settings.html">Settings</a>
+                    <a class="dropdown-item" href="login.php">Logout</a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-inner slimscroll">
+            <div id="sidebar-menu" class="sidebar-menu">
+                <ul>
+                    <li class="menu-title">Main</li>
+                    <li class="active">
+                        <a href="dash.php"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
+                    </li>
+                    <li class="submenu">
+                        <a href="#"><i class="fa fa-cog"></i> <span>Settings</span> <span class="menu-arrow"></span></a>
+                        <ul style="display: none;">
+                            <li><a href="company-settings.php">Company Settings</a></li>
+                            <li><a href="account-settings.php">Account Settings</a></li>
+                        </ul>
+                    </li>
+                    
+                    
+                    <li class="menu-title">ERP</li>
+                    <li class="submenu">
+                        <a href="#"><i class="fa fa-money"></i> <span>Transactions</span> <span class="menu-arrow"></span></a>
+                        <ul style="display: none;">
+                            <li><a href="all-transactions.php">View transactions</a></li>
+                            <li><a href="new-transactions.php">new transactions</a></li>
+                        
+                        </ul>
+                    </li>
+                    <li class="submenu">
+                        <a href="#"><i class="fa fa-money"></i> <span>Payments</span> <span class="menu-arrow"></span></a>
+                        <ul style="display: none;">
+                            <li><a href="payments.php">View Payments</a></li>
+                        
+                        </ul>
+                    </li>
+                    <li class="submenu">
+                        <a href="#"><i class="fa fa-users"></i> <span>Assets</span> <span class="menu-arrow"></span></a>
+                        <ul style="display: none;">
+                            <li><a href="all-asset.php">All assets</a></li>
+                            <li><a href="add-asset.php">Add assets</a></li>
+                            
+                        </ul>
+                    </li>
+                    <li class="submenu">
+                        <a href="#"><i class="fa fa-book"></i> <span>Accounts</span> <span class="menu-arrow"></span></a>
+                        <ul style="display: none;">
+                        <li><a href="invoice.php">invoice</a></li>
+                            <li><a href="expense.php">Expenses</a></li>
+                            
+                        </ul>
+                    </li>
+                    <li class="submenu">
+                        <a href="#"><i class="fa fa-users"></i> <span>Capital</span> <span class="menu-arrow"></span></a>
+                        <ul style="display: none;">
+                            <li><a href="all-capital.php">All capitals</a></li>
+                            <li><a href="add-capital.php">Add capital</a></li>
+                            
+                        </ul>
+                    </li>
+                   
+                   
+                    <li class="menu-title">Supply chain</li>
+                    <li class="submenu">
+                        <a href="#"><i class="fa fa-cube"></i> <span>Inventory</span> <span class="menu-arrow"></span></a>
+                        <ul style="display: none;">
+                            <li><a href="all-items.php">All Items</a></li>
+                            <li><a href="add-item.php">Add Item</a></li>
+                            <li><a href="suppliers-list.php">Suppliers</a></li>
+                            
+                            
+                        </ul>
+                    </li>
+                    <li class="menu-title">Reports</li>
+                    
+                    
+                    <li>
+                        <a href="invoices.php"><i class="fa fa-file-text-o"></i> <span>Invoices settings</span></a>
+                    </li>
+                    <li class="submenu">
+                        <a href="#"><i class="fa fa-bar-chart"></i> <span>Reports</span> <span class="menu-arrow"></span></a>
+                        <ul style="display: none;">
+                            <li><a href="financial-reports.php">Financial Reports</a></li>
+                            <li><a href="sales-reports.php">Sales Reports</a></li>
+                            
+                        </ul>
+                    </li>
+                    
+                    <li>
+                        <a href="tax.php"><i class="fa fa-tasks"></i> <span>Tax</span></a>
+                    </li>
+                    <li class="menu-title">Other</li>
+                    
+                    <li>
+                        <a href="forex.html"><i class="fa fa-bell-o"></i> <span>Forex Exchange</span></a>
+                    </li>
+                    
+                    
+                   
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-wrapper">
+    <div class="content">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <h4 class="page-title">Add Products</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <form action="add-item.php" method="POST">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Product Name <span class="text-danger">**</span></label>
+                                <input class="form-control" type="text" name="product_name" placeholder="Enter product name" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Date</label>
+                                <input class="form-control datetimepicker" type="" name="date" placeholder="Enter date" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Quantity</label>
+                                <input class="form-control" type="text" name="quantity" placeholder="Enter quantity" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea class="form-control" type="text" name="description" placeholder="Enter description"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Unit price</label>
+                                <div class="cal-icon">
+                                    <input type="text" class="form-control" name="unit_price" placeholder="enter price">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Category</label>
+                                <select class="form-control select" name="category">
+            <option value="">Select Category</option>
+            <?php
+            // Fetch customer IDs from the database
+            include('config.php');
+
+            $sql = "SELECT category_name FROM category";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "<option value='" . $row['category_name'] . "'>" . $row['category_name'] . "</option>";
+                }
+            } else {
+                echo "<option value=''>No category found</option>";
+            }
+
+            $conn->close();
+            ?>
+        </select>
+                                
+                            
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+    <div class="form-group">
+        <label>product Status</label>
+        <select class="form-control select" name="product_status">
+            <option value="">Select product Status</option>
+            <option>sufficient</option>
+            <option>Insufficient</option>
+
+
+</select>
+    </div>
+</div>
+
+                    <div class="m-t-20 text-center">
+                        <button class="btn btn-primary submit-btn" name = "create_products" type="submit">Save Product</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php
+// Include the footer
+include('footer.php');
+?>
+
+
+    
+    <!-- orders23:19 -->
+    <div class="sidebar-overlay" data-reff=""></div>
+    <script src="assets/js/jquery-3.2.1.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.slimscroll.js"></script>
+    <script src="assets/js/select2.min.js"></script>
+    <script src="assets/js/jquery.dataTables.min.js"></script>
+    <script src="assets/js/dataTables.bootstrap4.min.js"></script>
+    <script src="assets/js/moment.min.js"></script>
+    <script src="assets/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="assets/js/app.js"></script>
+    </body>
+    </html>
+    

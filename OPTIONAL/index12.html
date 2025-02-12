@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<!-- Website - www.glorybata.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Efinasa </title>
+    <link rel="stylesheet" href="style.css" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+  </head>
+  <style>
+   
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins' sans-serif;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+  }
+  
+  
+  nav {
+    background-color:rgb(25, 22, 46);
+    color: rgb(180, 167, 167);
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    border-radius: 6px;
+    box-shadow: 0px 3px 6px rgb(38, 4, 105);
+
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo a {
+    color: rgb(236, 13, 13);
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-left: 40px;
+  }
+  
+  .menu {
+    list-style: none;
+    display: flex;
+    align-items: center;
+  }
+  
+  .menu li {
+    margin-right: 20px;
+  }
+  
+  .menu a {
+    text-decoration: none;
+    color: rgb(162, 162, 164);
+    font-weight: 900;
+    transition: color 0.3s ease;
+  }
+  
+  .menu a:hover {
+    color: #ff7e5f;
+  }
+  
+  
+   .cancel-btn {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: rgb(12, 12, 12);
+  }
+  
+  .menu-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    cursor: pointer;
+  }
+  
+  .menu-btn i {
+    font-size: 24px;
+    color: #070707; 
+    transition: color 0.3s ease; 
+  }
+  
+  .menu-btn:hover i {
+    color: #ff002f; 
+  }
+  
+  
+
+  .home {
+    background-color:rgb(25, 32, 64);
+    color: #350ad1;
+    text-align: center;
+    padding: 100px 0;
+    border-radius: 8px;
+    box-shadow: 0px 1px 2px;
+    gap: 10px;
+    justify-content: space-between;
+    height: 380px;
+    box-shadow: 0px 3px 7px rgb(182, 222, 123);
+  }
+  
+  .home-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .text {
+    margin-bottom: 20px;
+  }
+  
+  .text-one {
+    font-size: 1.5rem;
+  }
+  
+  .text-two {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #0f0507;
+  }
+  
+  .text-three, .text-four {
+    font-size: 1.5rem;
+    color: #1506ec;
+  }
+  
+  .button button {
+    background-color: #0b0909;
+    color: rgb(27, 2, 8);
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 12px;
+  }
+  
+  .button button:hover {
+    background-color: #08e008;
+  }
+  
+  
+  .about {
+    background-color:#dfd7d7;
+    color: #3405e0;
+    text-align: center;
+    padding: 100px 0;
+  }
+  
+  .title span {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ff7e5f;
+    margin-bottom: 20px;
+    display: block;
+  }
+  
+  .about-details {
+    display: flex;
+    justify-content: right;
+    align-items:flex-end;
+    flex-wrap: wrap;
+
+    
+  }
+  
+  .left img {
+    max-width: 80%;
+    height: 50%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(64, 3, 219, 0.902);
+  }
+  
+  .right {
+    flex: 1;
+    padding: 0 20px;
+    text-align: left;
+  }
+  
+  .topic {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ed1313;
+    margin-bottom: 10px;
+  }
+  
+  
+  .skills {
+    background-color: #051e41;
+    color: #2308ed;
+    text-align: center;
+    padding: 100px 0;
+    box-shadow: 0px 8px 12px rgb(11, 12, 12);
+  }
+  
+  .skills-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .text {
+    flex: 1;
+    padding-right: 20px;
+  }
+  
+  .boxes {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+  }
+  
+  .box {
+    text-align: center;
+    margin: 0 20px;
+    border: 3px solid;
+    cursor: pointer;
+  }
+
+  .box:hover{
+    background-color: #0872b4;
+  }
+  
+  .per {
+    font-size: 1.5rem;
+    color: #ff7e5f;
+    font-weight: bold;
+  }
+  
+  
+  .services {
+    background-color: #051e41;
+    color: #333;
+    text-align: center;
+    padding: 100px 0;
+  }
+  
+  .boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+  }
+  
+  .box {
+    background: #daeada;
+    flex: 1;
+    border: 1px solid #3904f9;
+    border-radius: 8px;
+    margin: 10px;
+    padding: 20px;
+    transition: box-shadow 0.3s ease rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 1px 4px;
+  }
+  
+  .box:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  
+ 
+.contact {
+  background-color: #f8f8f8;
+  padding: 80px 0; 
+}
+
+.contact .content {
+  text-align: center;
+}
+
+.contact .title {
+  font-size: 2rem; 
+  color: #333; 
+}
+
+.contact .text {
+  max-width: 600px; 
+  margin: 0 auto;
+}
+
+.contact .topic {
+  font-size: 1.5rem; 
+  color: #007BFF; 
+  margin-bottom: 10px;
+}
+
+.contact p {
+  font-size: 1.1rem; 
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.contact button {
+  background-color: #28a745; 
+  color: #fff; 
+  padding: 10px 20px; 
+  font-size: 1.2rem; 
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact button:hover {
+  background-color: #218838;
+}
+
+  .text {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .button button {
+    background-color: rgb(250, 9, 9);
+    color: #0c0c0c;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .button button:hover {
+    background-color: #1a07e7;
+    color: rgb(11, 12, 12);
+  }
+  
+ 
+  footer {
+  background-color: #8b88b0;
+  color: #e41212;
+  padding: 10px 0;
+}
+
+.footer-content {
+  display: block;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 2200px;
+  margin: 0 auto;
+}
+
+.text,
+.additional-info {
+  flex: 1;
+}
+
+.text a,
+.credit a {
+  color: #050505;
+  text-decoration: none;
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+}
+
+.social-icon {
+  margin: 0 8px;
+  color: #0c33f7;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.footer-sections {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.section {
+  margin-right: 90px;
+  width: 50%;
+}
+
+.section h3 {
+  color: #0a0a0a;
+  font-size: 1.5rem;
+  width: 50%;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.newsletter-input {
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  color: #5e0ceb;
+  font-size: 28px;
+  width: 50%;
+  height: 50%;
+  font-weight: bold;
+}
+
+
+.news-input {
+  padding: 10px;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.news-btn {
+  padding: 10px 15px;
+  background-color: #007BFF;
+  color: #090808;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.news-btn:hover {
+  background-color: #b3001b;
+}
+
+
+.newsletter-submit {
+  padding: 8px;
+  background-color: #fff;
+  color: #2705e6;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 50%;
+  height: 50%;
+}
+
+.newsletter-submit:hover {
+  background-color: #f30909;
+  color: #0f0f0f;
+}
+
+.media-icons {
+  display: flex;
+  align-items: center;
+}
+
+.media-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background-color: #3904f7; 
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  list-style: none;
+}
+
+.media-icons a:hover {
+  background-color: #05e842;  
+}
+
+.media-icons i {
+  font-size: 20px; 
+  color: #fff; 
+  text-decoration: none;
+  list-style: none;
+}
+
+
+
+.agro-trends {
+  background-color: #f8f8f8;
+  padding: 80px 0;
+  text-align: center; 
+}
+
+.agro-trends .content {
+  text-align: center;
+}
+
+.agro-trends .title {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.agro-trends .agro-details {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.agro-trends .agro-info,
+.agro-trends .price-movement {
+  max-width: 400px;
+  margin: 20px auto; 
+}
+
+.agro-trends .topic {
+  font-size: 1.5rem;
+  color: #007BFF;
+  margin-bottom: 10px;
+}
+
+.agro-trends p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+
+.price-movement {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.price-cards {
+  display: flex;
+  gap: 20px;
+  justify-content: center; 
+}
+
+.price-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.price-card:hover{
+  background: #00ff33;
+}
+.price-card i {
+  font-size: 24px;
+  margin-right: 10px;
+  
+}
+
+.price-card.rise {
+  border-color: #28a745;
+}
+.price-card.rise i{
+  color: green;
+}
+
+.price-card.fall {
+  border-color: #dc3545;
+}
+.price-card.fall i{
+  color: red;
+}
+
+.price-card.stable {
+  border-color: #007bff;
+}
+.price-card.stable i{
+  color: yellow;
+}
+
+.price-info {
+  flex-grow: 1;
+  text-align: center; 
+}
+
+.crop-name {
+  font-weight: bold;
+  color: #333;
+}
+
+.price {
+  color: #007bff;
+  font-size: 1.2rem;
+}
+
+.financial-graph {
+  background-color: #f2f0f0;
+  padding: 80px 0;
+  text-align: center;
+}
+
+.financial-graph .content {
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.financial-graph .title {
+  font-size: 2rem;
+  color: #0909db;
+  margin-bottom: 20px;
+}
+
+.graph-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 2200px; 
+  max-height: 1300px;
+  margin: 0 auto; 
+}
+
+.graph-card {
+  flex: 1;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 0 10px; 
+  width: 100%;
+  height: 100%;
+}
+
+#priceChart1,
+#priceChart2,
+#priceChart3 {
+  max-width: 100%; 
+  height: auto;
+}
+
+
+
+
+
+
+  
+  @media screen and (max-width: 768px) {
+    .menu {
+      display: none;
+      flex-direction: column;
+      background-color: #333;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      right: 0;
+      z-index: 999;
+    }
+  
+    .menu.active {
+      display: flex;
+    }
+  
+    .menu li {
+      margin: 0;
+      text-align: center;
+      padding: 15px;
+      border-bottom: 1px solid #555;
+    }
+  
+    .menu a {
+      color: white;
+    }
+  
+    .menu-btn, .cancel-btn {
+      display: flex;
+    }
+  
+    .navbar {
+      position: relative;
+    }
+  
+    .cancel-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+  
+    .cancel-btn:hover {
+      color: #ff7e5f;
+    }
+  }
+
+  .scroll-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: none;
+  }
+  
+  .scroll-button i {
+    font-size: 20px;
+  }
+  
+  .scroll-button:hover {
+    background-color: #0056b3;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    margin-right: 20px;
+    order: -1; 
+  }
+  
+  .phone-number,
+  .email {
+    margin-bottom: 5px;
+    color: #ffffff; 
+    font-size: 14px;
+  }
+
+  .active{
+    background: #b3001e;
+    padding: 0px 6px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 1px solid;
+    box-shadow: 0px 3px 5px rgb(11, 12, 12);
+  }
+  
+  </style>
+  <body>
+    
+    <div class="scroll-button">
+      <a href="#home"><i class="fas fa-arrow-up"></i></a>
+    </div>
+   
+    <nav>
+      <div class="navbar">
+        <div class="contact-info">
+          <div class="phone-number">Phone: +254 745 381 762</div>
+          <div class="email">Email: e-finasa@info.com</div>
+        </div>
+        <div class="logo"><a href="#">e-Finasa</a></div>
+        
+        <ul class="menu">
+          <li><a class="active" href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#agro-trends">trends</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <div class="cancel-btn">
+            <i class="fas fa-times"></i>
+          </div>
+        </ul>
+
+        <div class="media-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+    
+    <section class="home" id="home">
+      <div class="home-content">
+        <div class="text">
+          <div class="text-two">Welcome to e-Finasa</div><br>
+          <div class="text-three">Digital Financial Solutions</div>
+        </div><br><br><br>
+        <div class="button">
+          <a href="Admin/login.php">
+          <button>Get Started</button>
+        </a>
+        </div><br><br>
+        <div class="button">
+          <a href="customer/login.php">
+          <button>Customer</button>
+        </a>
+        </div>
+      </div>
+    </section>
+    
+    <section class="about" id="about">
+      <div class="content">
+        <div class="title"><span>About e-Finasa</span></div>
+        <div class="about-details">
+          <div class="left">
+            <img src="agro.png" alt="About e-Finasa" />
+          </div>
+          <div class="right">
+            <div class="topic">Revolutionizing Digital Finance</div>
+            <p>
+              e-Finasa is an innovative platform designed to streamline and enhance digital financial processes. We aim to connect users, merchants, and financial institutions through digital solutions. Our passion is to empower the community and contribute to the growth of the digital finance sector.
+            </p><br>
+            <div class="button">
+              <button>Learn More</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+<section class="skills" id="skills">
+    <div class="content">
+      <div class="title"><span>e-Finasa Skills</span></div>
+      <div class="skills-details">
+        <div class="text">
+          <div class="topic">Empowering Digital Finance</div>
+          <p>
+            At e-Finasa, our team leverages a decade of experience to deliver innovative solutions driving success in digital finance. Our skills reflect a deep commitment to excellence and innovation in the financial sector.
+          </p>
+          <div class="experience">
+            <div class="num">10</div>
+            <div class="exp">
+              Years Of <br />
+              Financial Expertise
+            </div>
+          </div>
+        </div>
+        <div class="boxes">
+          <div class="box">
+            <div class="topic">Online Payment Solutions</div>
+            <div class="per">90%</div>
+          </div>
+          <div class="box">
+            <div class="topic">Financial Management Tools</div>
+            <div class="per">80%</div>
+          </div>
+          <div class="box">
+            <div class="topic">Transaction Security</div>
+            <div class="per">70%</div>
+          </div>
+          <div class="box">
+            <div class="topic">User Experience Design</div>
+            <div class="per">60%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+ 
+  <section class="services" id="services">
+    <div class="content">
+      <div class="title"><span>e-Finasa Services</span></div>
+      <div class="boxes">
+        <div class="box">
+          <div class="icon">
+            <i class="fas fa-wallet"></i>
+          </div>
+          <div class="topic">Digital Wallet Solutions</div>
+          <p>We provide digital wallet solutions to enable seamless online transactions and financial management.</p>
+        </div>
+        <div class="box">
+          <div class="icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <div class="topic">Merchant Services</div>
+          <p>Our merchant services empower businesses with secure and efficient payment processing solutions.</p>
+        </div>
+        <div class="box">
+          <div class="icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <div class="topic">Financial Analytics</div>
+          <p>We offer financial analytics tools to help users make informed decisions and maximize their financial potential.</p>
+        </div>
+        <div class="box">
+          <div class="icon">
+            <i class="fas fa-credit-card"></i>
+          </div>
+          <div class="topic">Credit Card Services</div>
+          <p>Our credit card services provide users with flexible and secure payment options for their financial needs.</p>
+        </div>
+        <div class="box">
+          <div class="icon">
+            <i class="fas fa-exchange-alt"></i>
+          </div>
+          <div class="topic">Currency Exchange</div>
+          <p>We facilitate currency exchange services to enable global financial transactions with ease.</p>
+        </div>
+        <div class="box">
+          <div class="icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <div class="topic">Transaction Security</div>
+          <p>Our robust security measures ensure safe and secure transactions for all our users.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+<section class="agro-trends" id="agro-trends">
+  <div class="content">
+    <div class="title"><span>Financial Trends</span></div>
+    <div class="agro-details">
+      <div class="agro-info">
+        <div class="topic">Current Financial Trends</div>
+        <p>
+          Stay informed about the latest trends in digital finance. We provide real-time updates on online payments, financial management, and emerging technologies in the financial sector.
+        </p>
+      </div>
+      <div class="price-movement">
+        <div class="topic">Price Movement</div>
+        <div class="price-cards">
+          
+          <div class="price-card rise">
+            <i class="fas fa-arrow-up"></i>
+            <div class="price-info">
+              <span class="currency">Bitcoin</span>
+              <span class="price"> $42,500</span>
+            </div>
+          </div>
+          
+          <div class="price-card fall">
+            <i class="fas fa-arrow-down"></i>
+            <div class="price-info">
+              <span class="currency">Ethereum</span>
+              <span class="price"> $2,800</span>
+            </div>
+          </div>
+         
+          <div class="price-card stable">
+            <i class="fas fa-equals"></i>
+            <div class="price-info">
+              <span class="currency">USD</span>
+              <span class="price"> $1.00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="financial-graph" id="financial-graph">
+  <div class="content">
+    <div class="title"><span>Financial Graphs - Market Prices</span></div>
+    <div class="graph-container">
+      <div class="graph-card">
+        <canvas id="priceChart1" width="300" height="150"></canvas>
+      </div>
+      <div class="graph-card">
+        <canvas id="priceChart2" width="300" height="150"></canvas>
+      </div>
+      <div class="graph-card">
+        <canvas id="priceChart3" width="300" height="150"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
+
+  
+   
+  <section class="contact" id="contact">
+    <div class="content">
+      <div class="title"><span>Get in Touch with e-Finasa</span></div>
+      <div class="text">
+        <div class="topic">Have Any Financial Inquiry?</div>
+        <p>Whether you're planning a financial project or just want to connect, we'd love to hear from you. Reach out to us for innovative solutions tailored to your financial needs.</p>
+        <div class="button">
+          <button>Contact e-Finasa</button>
+        </div>
+      </div>
+    </div>
+  </section>
+    
+   
+  <footer>
+    <div class="footer-content">
+      <div class="text">
+        <span>Developed By <a href="#">GloryBata</a> | &#169; 2024 All Rights Reserved</span>
+      </div>
+      <div class="additional-info">
+        <div class="credit">
+          <span>Designed By <a href="#">e-Finasa Team</a></span>
+        </div>
+        <div class="social-links">
+          <span>Follow Us:</span>
+          <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="footer-sections">
+          <div class="section">
+            <h3>Services</h3>
+            
+            <ul>
+              <li><a href="#">Online Payment Solutions</a></li>
+              <li><a href="#">Financial Management Tools</a></li>
+              <li><a href="#">Transaction Security</a></li>
+              
+            </ul>
+          </div>
+          <div class="section">
+            <h3>About Us</h3>
+            
+            <p>e-Finasa is dedicated to revolutionizing digital finance...</p>
+            <p>Our mission is to provide innovative solutions for financial empowerment...</p>
+          </div>
+          <div class="section">
+            <h3>Newsletter</h3>
+            
+            <p>Subscribe to our newsletter for the latest updates.</p>
+            <form>
+              <input class= "news-input" type="email" placeholder="Enter your email" /><br><br>
+              <button  class="news-btn" type="submit">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-chart-financial"></script>
+
+
+    <script>
+
+      document.addEventListener('DOMContentLoaded', function () {
+        
+        var scrollButton = document.querySelector('.scroll-button');
+      
+        window.addEventListener('scroll', function () {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            scrollButton.style.display = 'block';
+          } else {
+            scrollButton.style.display = 'none';
+          }
+        });
+      
+        scrollButton.addEventListener('click', function () {
+          scrollToTop();
+        });
+      
+        function scrollToTop() {
+          var currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      
+          if (currentScroll > 0) {
+            window.requestAnimationFrame(scrollToTop);
+            window.scrollTo(0, currentScroll - currentScroll / 8);
+          }
+        }
+      });
+      
+      // Line Chart
+      var ctx1 = document.getElementById("priceChart1").getContext("2d");
+      var priceChart1 = new Chart(ctx1, {
+        type: "line",
+        data: {
+          labels: ["Jan", "Feb", "Mar", "Apr", "May"],
+          datasets: [
+            {
+              label: "Bitcoin",
+              borderColor: "rgba(75, 192, 192, 1)",
+              borderWidth: 2,
+              data: [10000, 20000, 15000, 25000, 30000],
+            },
+          ],
+        },
+      });
+      
+      // Area Chart
+      var ctx2 = document.getElementById("priceChart2").getContext("2d");
+      var priceChart2 = new Chart(ctx2, {
+        type: "line",
+        data: {
+          labels: ["Jan", "Feb", "Mar", "Apr", "May"],
+          datasets: [
+            {
+              label: "Ethereum",
+              backgroundColor: "rgba(255, 99, 132, 0.2)",
+              borderColor: "rgba(255, 99, 132, 1)",
+              borderWidth: 2,
+              data: [3000, 2500, 3500, 2000, 1500],
+            },
+          ],
+        },
+      });
+      
+      document.addEventListener("DOMContentLoaded", function () {
+        // Area Chart
+        var ctx = document.getElementById("candlestickChart").getContext("2d");
+        var areaChart = new Chart(ctx, {
+          type: "area", 
+          data: {
+            datasets: [
+              {
+                label: "e-Finasa Financial Data",
+                data: [
+                  { t: "2022-01-01", y: 150 },
+                  { t: "2022-02-01", y: 180 },
+                  { t: "2022-03-01", y: 200 },
+                  { t: "2022-04-01", y: 220 },
+                  { t: "2022-05-01", y: 240 },
+                ],
+                fill: true, 
+                backgroundColor: "rgba(75, 192, 192, 0.2)", 
+                borderColor: "rgba(75, 192, 192, 1)", 
+                borderWidth: 2, 
+                pointRadius: 0, 
+              },
+            ],
+          },
+          options: {
+            scales: {
+              x: {
+                type: "time",
+                time: {
+                  unit: "month",
+                },
+              },
+              y: {
+                beginAtZero: true,
+              },
+            },
+          },
+        });
+      });
+    
+    document.addEventListener('DOMContentLoaded', function () {
+        const links = document.querySelectorAll('nav ul.menu a');
+        const menuBtn = document.querySelector('.menu-btn');
+        const navMenu = document.querySelector('nav ul.menu');
+        const cancelBtn = document.querySelector('.cancel-btn');
+      
+        links.forEach(link => {
+          link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+      
+            window.scrollTo({
+              top: targetElement.offsetTop - document.querySelector('nav').offsetHeight,
+              behavior: 'smooth'
+            });
+      
+            if (navMenu.classList.contains('active')) {
+              navMenu.classList.remove('active');
+            }
+          });
+        });
+      
+        menuBtn.addEventListener('click', function () {
+          navMenu.classList.add('active');
+          menuBtn.style.display = 'none';
+          cancelBtn.style.display = 'block';
+        });
+      
+        cancelBtn.addEventListener('click', function () {
+          navMenu.classList.remove('active');
+          menuBtn.style.display = 'block';
+          cancelBtn.style.display = 'none';
+        });
+      });
+    
+          
+
+    </script>
+  </body>
+</html>

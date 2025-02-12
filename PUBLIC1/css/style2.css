@@ -1,0 +1,165 @@
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Header styles */
+.display-6 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.text-primary {
+    color: #007bff;
+}
+
+/* Roadmap section styles */
+.roadmap-carousel {
+    margin-top: 30px;
+}
+
+.roadmap-item {
+    text-align: center;
+}
+
+.roadmap-point {
+    width: 20px;
+    height: 20px;
+    background-color: #007bff;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+}
+
+.roadmap-point span {
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-color: #fff;
+    border-radius: 50%;
+    margin: 6px;
+}
+
+/* Token Sale section styles */
+.py-5 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+}
+
+.bg-light {
+    background-color: #f8f9fa !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.p-3 {
+    padding: 1rem !important;
+}
+
+.text-primary {
+    color: #007bff !important;
+}
+
+.py-4 {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+}
+
+.btn-primary {
+    color: #fff !important;
+    background-color: #007bff !important;
+    border-color: #007bff !important;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3 !important;
+    border-color: #0056b3 !important;
+}
+
+/* FAQs section styles */
+.accordion-item {
+    margin-bottom: 20px;
+}
+
+.accordion-button {
+    background-color: #f8f9fa;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    border-radius: 0;
+    color: #333;
+    font-weight: bold;
+    padding: 15px;
+    text-align: left;
+    transition: background-color 0.3s ease;
+}
+
+.accordion-button:hover {
+    background-color: #f0f0f0;
+}
+
+.accordion-body {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    padding: 15px;
+}
+
+/* Footer section styles */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+}
+
+.text-white {
+    color: #fff !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem !important;
+}
+
+/* Back to Top button styles */
+.back-to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    display: none;
+    width: 40px;
+    height: 40px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.back-to-top:hover {
+    background-color: #0056b3;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+    .display-6 {
+        font-size: 2rem;
+    }
+}

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <title>Forex Exchange</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="admin.css">
+    <!--[if lt IE 9]>
+        <script src="assets/js/html5shiv.min.js"></script>
+        <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="main-wrapper">
+        <div class="header">
+            <div class="header-left">
+                <a href="index.html" class="logo">
+                    <span>e-finasa</span>
+                </a>
+            </div>
+            <a id="toggle_btn" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
+            <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"><i class="fa fa-bars"></i></a>
+            <ul class="nav user-menu float-right">
+                <!-- Update navigation links below -->
+                
+                <li class="nav-item"><a href="#" class="nav-link">Upgrade</a></li>
+                <!-- Add more navigation links as needed -->
+                
+                <li class="nav-item dropdown has-arrow">
+                    <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
+                        <span class="user-img">
+                            <img class="rounded-circle" src="assets/img/user.jpg" width="24" alt="User">
+                            <span class="status online"></span>
+                        </span>
+                        <span >
+                        <?php 
+       
+        include('config.php');
+        if (isset($_SESSION['username'])) {
+
+            $username = $_SESSION['username'];
+            
+            echo "Welcome, $username!";
+        } else {
+            echo "Unknown";
+        }
+        
+        ?>
+        </span> <!-- Replace with the user's name -->
+                    </a>
+                    <div class="dropdown-menu">
+                        <!-- Customize user profile dropdown links -->
+                        <a class="dropdown-item" href="profile.php">My Profile</a>
+                        <a class="dropdown-item" href="edit-profile.php">Edit Profile</a>
+                        <a class="dropdown-item" href="settings.php">Settings</a>
+                        <a class="dropdown-item" href="login.php">Logout</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="dropdown mobile-user-menu float-right">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="profile.php">My Profile</a>
+                    <a class="dropdown-item" href="edit-profile.php">Edit Profile</a>
+                    <a class="dropdown-item" href="settings.php">Settings</a>
+                    <a class="dropdown-item" href="login.php">Logout</a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+<div class="page-wrapper">
+    <div class="content">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Forex Exchange Calculator</h2>
+            <form id="forexForm" onsubmit="convert(); return false;">
+                <div class="form-group">
+                    <label for="amount">Amount:</label>
+                    <input type="number" class="form-control" id="amount" name="amount" placeholder="Enter amount" required>
+                </div>
+                <div class="form-group">
+                    <label for="fromCurrency">From Currency:</label>
+                    <select class="form-control select" id="fromCurrency" name="fromCurrency" required>
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                        <option value="GBP">GBP</option>
+                        <option value="TZS">TZS</option>
+                        <option value="KSH">KSH</option>
+                        <option value="UGS">UGS</option>
+                        <option value="ZAR">ZAR</option>
+                        <option value="NZD">NZD</option>
+                        <option value="AUD">AUD</option>
+                        <option value="JPY">JPY</option>
+                        <option value="INR">INR</option>
+                        <option value="CAD">CAD</option>
+                        <option value="CHF">CHF</option>
+                        <option value="CNY">CNY</option>
+                        <option value="HKD">HKD</option>
+                        <option value="SGD">SGD</option>
+                        <option value="SEK">SEK</option>
+                        <option value="MXN">MXN</option>
+                        <option value="BRL">BRL</option>
+                        <option value="RUB">RUB</option>
+                        <option value="PLN">PLN</option>
+                        <option value="TRY">TRY</option>
+                        <option value="THB">THB</option>
+                        <option value="IDR">IDR</option>
+                        <option value="ARS">ARS</option>
+                        <option value="NOK">NOK</option>
+                        <option value="DKK">DKK</option>
+                        <option value="EGP">EGP</option>
+                        <option value="MYR">MYR</option>
+                        <!-- Add currency options here -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="toCurrency">To Currency:</label>
+                    <select class="form-control select" id="toCurrency" name="toCurrency" required>
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                        <option value="GBP">GBP</option>
+                        <option value="TZS">TZS</option>
+                        <option value="KSH">KSH</option>
+                        <option value="UGS">UGS</option>
+                        <option value="ZAR">ZAR</option>
+                        <option value="NZD">NZD</option>
+                        <option value="AUD">AUD</option>
+                        <option value="JPY">JPY</option>
+                        <option value="INR">INR</option>
+                        <option value="CAD">CAD</option>
+                        <option value="CHF">CHF</option>
+                        <option value="CNY">CNY</option>
+                        <option value="HKD">HKD</option>
+                        <option value="SGD">SGD</option>
+                        <option value="SEK">SEK</option>
+                        <option value="MXN">MXN</option>
+                        <option value="BRL">BRL</option>
+                        <option value="RUB">RUB</option>
+                        <option value="PLN">PLN</option>
+                        <option value="TRY">TRY</option>
+                        <option value="THB">THB</option>
+                        <option value="IDR">IDR</option>
+                        <option value="ARS">ARS</option>
+                        <option value="NOK">NOK</option>
+                        <option value="DKK">DKK</option>
+                        <option value="EGP">EGP</option>
+                        <option value="MYR">MYR</option>
+                        <!-- Add currency options here -->
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Convert</button>
+            </form> <br>
+
+            <!-- Display conversion result here -->
+            <div id="result" style="margin-top: 20px; color:red"></div><br>
+        </div><br><br>
+        
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive" style="max-height: 300px; overflow-y: auto;">
+                    <table class="table table-striped custom-table datatable mb-0" id = "table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Currency</th>
+                                <th>Rates</th>
+                            </tr>
+                        </thead>
+                        <tbody id="currencyTableBody">
+                            <!-- Currency data will be dynamically loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+
+        <div class="col-md-6">
+            <div id="chartContainer" style="height: 400px; max-width: 920px; margin: 0px auto;"></div>
+            
+        </div>
+        
+        </div>
+
+    </div>
+</div>
+</div>
+
+<script src="assets/js/jquery-3.2.1.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/jquery.dataTables.min.js"></script>
+<script src="assets/js/dataTables.bootstrap4.min.js"></script>
+<script src="assets/js/select2.min.js"></script>
+<script src="assets/js/moment.min.js"></script>
+<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="https://cdn.canvasjs.com/canvasjs.stock.min.js"></script>
+<script>
+    function convert() {
+      var amount = document.getElementById('amount').value;
+      var fromCurrency = document.getElementById('fromCurrency').value;
+      var toCurrency = document.getElementById('toCurrency').value;
+      
+      fetch(`https://api.exchangerate-api.com/v4/latest/${fromCurrency}`)
+        .then(response => response.json())
+        .then(data => {
+          var exchangeRate = data.rates[toCurrency];
+          var result = amount * exchangeRate;
+          document.getElementById('result').innerHTML = `${amount} ${fromCurrency} = ${result.toFixed(2)} ${toCurrency}`;
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          document.getElementById('result').innerHTML = 'An error occurred while fetching exchange rates.';
+        });
+    }
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    const apiKey = "36e347533e1f4bdebde623abb9449ff7";
+    const fetchCurrencyData = () => {
+        const url = `https://openexchangerates.org/api/latest.json?app_id=${apiKey}`;
+
+        $.getJSON(url, function(data) {
+            const currencyRates = data.rates;
+            const tableBody = $('#currencyTableBody');
+            tableBody.empty(); // Clear existing data
+
+            // Populate the table with currency rates
+            let rowNumber = 1;
+            for (const currency in currencyRates) {
+                const rate = currencyRates[currency];
+                const row = `<tr>
+                                <td>${rowNumber++}</td>
+                                <td>${currency}</td>
+                                <td>${rate}</td>
+                                <td class="text-right"><button class="btn btn-primary">View Charts</button></td>
+                            </tr>`;
+                tableBody.append(row);
+            }
+        });
+    };
+
+    // Call the fetchCurrencyData function initially
+    fetchCurrencyData();
+
+    // Refresh the data every 10 seconds
+    setInterval(fetchCurrencyData, 10000);
+</script>
+
+
+
+
+
+<script type="text/javascript">
+    window.onload = function () {
+      var dataPoints1 = [], dataPoints2 = [], dataPoints3 = [];
+      var stockChart = new CanvasJS.StockChart("chartContainer",{
+        exportEnabled: true,
+        theme: "light2",
+        title:{
+          text:"StockChart Market"
+        },
+        charts: [{
+          toolTip: {
+            shared: true
+          },
+          axisX: {
+            lineThickness: 5,
+            tickLength: 0,
+            labelFormatter: function(e) {
+              return "";
+            },
+            crosshair: {
+              enabled: true,
+              snapToDataPoint: true,
+              labelFormatter: function(e) {
+                return ""
+              }
+            }
+          },
+          axisY2: {
+            title: "Litecoin Price",
+            prefix: "€"
+          },
+          legend: {
+            verticalAlign: "top",
+            horizontalAlign: "left"
+          },
+          data: [{
+            name: "Price (in EUR)",
+            yValueFormatString: "€#,###.##",
+            axisYType: "secondary",
+            type: "candlestick",
+            risingColor: "green",
+            fallingColor: "red",
+            dataPoints : dataPoints1
+          }]
+        },{
+          height: 100,
+          toolTip: {
+            shared: true
+          },
+          axisX: {
+            crosshair: {
+              enabled: true,
+              snapToDataPoint: true
+            }
+          },
+          axisY2: {
+            prefix: "€",
+            title: "LTC/EUR"
+          },
+          legend: {
+            horizontalAlign: "left"
+          },
+          data: [{
+            yValueFormatString: "€#,###.##",
+            axisYType: "secondary",
+            name: "LTC/EUR",
+            dataPoints : dataPoints2
+          }]
+        }],
+        navigator: {
+          data: [{
+            color: "grey",
+            dataPoints: dataPoints3
+          }],
+          slider: {
+            minimum: new Date(2018, 06, 01),
+            maximum: new Date(2018, 08, 01)
+          }
+        }
+      });
+      $.getJSON("https://canvasjs.com/data/docs/ltceur2018.json", function(data) {
+        for(var i = 0; i < data.length; i++){
+          dataPoints1.push({x: new Date(data[i].date), y: [Number(data[i].open), Number(data[i].high), Number(data[i].low), Number(data[i].close)], color: data[i].open < data[i].close ? "green" : "red"});;
+          dataPoints2.push({x: new Date(data[i].date), y: Number(data[i].volume_eur), color: data[i].open < data[i].close ? "green" : "red"});
+          dataPoints3.push({x: new Date(data[i].date), y: Number(data[i].close)});
+        }
+        stockChart.render();
+      });
+    }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+           
+    
+            // Initialize the DataTable
+            var table = $('#table').DataTable();
+    
+            // Perform filtering based on the filter values
+                table.columns(0).search(id).columns(1).search(customer).columns(2).search(status).draw();
+            });
+            
+    
+        </script>
+
+    
+
+</body>
+</html>
